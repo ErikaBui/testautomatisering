@@ -11,8 +11,8 @@ Feature: User - register and login
 
     Examples:
       | email          | username   | password  | result |
-      | random12309qwe0q91234@gmail.com | randomqwe019i3019je014 | 1Password!321 | success |
-      | random12309qwe0q91234@gmail.com | randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01 | 1Password!321 | fail |
-      | random12309qwe0q91234@gmail.com | randomqwe019i3019je014 | 1Password!321 | fail |
-      |                | randomqwe019i3019je01 | 1Password!321 | fail |
+      | random12309qwe0q9123456@gmail.com | randomqwe019i3019je01456 | 1Password!321 | success |
+      | random12309qwe0q9123456@gmail.com | randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01randomqwe019i3019je01 | 1Password!321 | fail |
+      | random12309qwe0q9123456@gmail.com | randomqwe019i3019je01456 | 1Password!321 | fail |
+      |                | randomqwe019i3019je013123 | 1Password!321 | fail |
 

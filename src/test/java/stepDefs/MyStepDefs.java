@@ -14,13 +14,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
 
 public class MyStepDefs {
     WebDriver driver;
     WebDriverWait wait;
-
     Actions actions;
 
     @Given("I open the browser")
@@ -84,24 +84,15 @@ public class MyStepDefs {
             wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class='invalid-error']")));
             String actual = element.getText();
-            String expected = checkForErrors((actual));
+            String expected = checkError((actual));
             assertEquals(actual, expected);
         }
     }
 
-    private String checkForErrors(String error) {
-        String result;
-        switch (error) {
-            case "Great minds think alike - someone already has this username. If it's you, log in.":
-                result = error;
-            case "An email address must contain a single @.":
-                result = error;
-            case "Enter a value less than 100 characters long":
-                result = error;
-            default:
-                result = "Error not found";
-        }
-        return result;
+    private String checkError(String error) {
+        if (Objects.equals(error, "Great minds think alike - someone already has this username. If it's you, log in.") || Objects.equals(error, "An email address must contain a single @.") || Objects.equals(error, "Enter a value less than 100 characters long")) {
+            return error;
+        } else return "Error not found";
     }
 
     @After
